@@ -1,0 +1,22 @@
+{
+    "name": "threejs-template",
+    "version": "1.0.0",
+    "description": "Three.js template",
+    "scripts": {
+        "dev": "parcel src/index.html",
+        "prod": "parcel build src/index.html",
+        "clean": "rm -rf dist; rm -rf node_modules; rm -rf .parcel-cache; rm package-lock.json",
+        "format": "prettier --write \"**/*.{html,js,jsx,json,ts,tsx}\""
+    },
+    "author": "Gilbert Francois Duivesteijn",
+    "license": "Apache-2.0",
+    "dependencies": {
+        "nice-color-palettes": "^3.0.0",
+        "three": "^0.146.0"
+    },
+    "devDependencies": {
+        "@parcel/transformer-glsl": "^2.7.0",
+        "parcel": "^2.7.0",
+        "prettier": "^2.7.1"
+    }
+}
