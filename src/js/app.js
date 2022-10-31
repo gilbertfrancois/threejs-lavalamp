@@ -1,18 +1,14 @@
 import * as THREE from "three";
 import fragment from "../shader/fragment.frag";
 import vertex from "../shader/vertex.vert";
-import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
-import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
+// import { GUI } from "three/examples/jsm/libs/lil-gui.module.min.js";
 
 let colors = require("nice-color-palettes");
-// let palette = colors[Math.floor(Math.random() * colors.length)];
-
-// palette = palette.map(color => new THREE.Color(color));
 
 export default class Sketch {
     constructor(options) {
         this.scene = new THREE.Scene();
-        this.gui = new GUI();
+        // this.gui = new GUI();
 
         this.container = options.dom;
         this.width = this.container.offsetWidth;
@@ -28,22 +24,6 @@ export default class Sketch {
 
         this.camera = new THREE.PerspectiveCamera(70, this.ratio, 0.001, 1000);
 
-        // var frustumSize = 10;
-        // var aspect = window.innerWidth / window.innerHeight;
-        // this.camera = new THREE.OrthographicCamera(
-        //     (frustumSize * aspect) / -2,
-        //     (frustumSize * aspect) / 2,
-        //     frustumSize / 2,
-        //     frustumSize / -2,
-        //     -1000,
-        //     1000,
-        // );
-        // this.camera.position.set(0, 0, 1);
-
-        this.controls = new OrbitControls(
-            this.camera,
-            this.renderer.domElement,
-        );
         this.time = 0;
 
         this.isPlaying = true;
@@ -66,11 +46,11 @@ export default class Sketch {
             pos_z: 0.3,
             palette: 18,
         };
-        this.gui.add(this.settings, "rot_x", -1.57, 1.57, 0.01);
-        this.gui.add(this.settings, "rot_y", -1.57, 1.57, 0.01);
-        this.gui.add(this.settings, "rot_z", -1.57, 1.57, 0.01);
-        this.gui.add(this.settings, "pos_z", 0.0, 1.0, 0.01);
-        this.gui.add(this.settings, "palette", 0, 99, 1);
+        // this.gui.add(this.settings, "rot_x", -1.57, 1.57, 0.01);
+        // this.gui.add(this.settings, "rot_y", -1.57, 1.57, 0.01);
+        // this.gui.add(this.settings, "rot_z", -1.57, 1.57, 0.01);
+        // this.gui.add(this.settings, "pos_z", 0.0, 1.0, 0.01);
+        // this.gui.add(this.settings, "palette", 0, 99, 1);
     }
 
     setupResize() {
@@ -123,13 +103,15 @@ export default class Sketch {
 
     update_palette(index) {
         this.palette = colors[index];
+        console.log(this.palette);
+        // this.palette = ["#ffffff", "#0088ff", "#ffffff", "#ffffff", "#ffffff"];
         this.palette = this.palette.map((color) => new THREE.Color(color));
     }
 
     render() {
         if (!this.isPlaying) return;
         this.time += 0.0001;
-        this.gui;
+        // this.gui;
         this.plane1.rotation.x = this.settings.rot_x;
         this.plane1.rotation.y = this.settings.rot_y;
         this.plane1.rotation.z = this.settings.rot_z;
