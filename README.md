@@ -3,7 +3,7 @@ _Gilbert François Duivesteijn_
 
 ## About
 
-A smooth moving colour gradient with discontinuities, implemented with THREE.js
+Smooth changing colour gradients with discontinuities in WebGL, implemented with Three.js.
 
 ## Usage
 
